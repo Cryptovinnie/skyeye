@@ -1,8 +1,11 @@
-.PHONY: test lint check cover
+.PHONY: test lint check cover build
 .PHONY: install-linters
 
-test: ## Run tests for Wing Commander
+test: ## Run tests
 	go test -race ./... -timeout=5m
+
+build: ## Build
+	go build -v -race ./...
 
 lint: ## Run linters. Use make install-linters first.
 	vendorcheck ./...
